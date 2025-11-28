@@ -18,10 +18,8 @@ It demonstrates:
 1.Requirements
 - Any PHP local server
 - PHP 7.4+
-<br>
-2.Place the Project Files
+2.Place the Project Files<br>
 - Copy the project folder into your local server directory
-<br>
 3.Start the Server
 <br>
 4.Access the Project
