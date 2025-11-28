@@ -44,47 +44,40 @@
     // print_r($books); // print to check
 
     // Part3 User Input Handling
-    switch($_SERVER["REQUEST_METHOD"]){
-        case "GET":
-            break;
-        case "POST":
-            switch(basename($_SERVER["PATH_INFO"])){
-                case "input":
-                if(isset($_REQUEST['title']) && isset($_REQUEST["author"]) && isset($_REQUEST["genre"]) && isset($_REQUEST["price"])){
-                    // echo $_REQUEST["title"];
-                    $title = $_REQUEST['title'];
-                    $author = $_REQUEST['author'];
-                    $genre = $_REQUEST['genre'];
-                    $price = $_REQUEST['price'];
-                    // add new book
-                    $newBooks = [
-                        'title' => $title,
-                        'author' => $author,
-                        'genre' => $genre,
-                        'price' => $price
-                    ];
+    if ($_SERVER["REQUEST_METHOD"] === "POST" &&
+        isset($_POST['title'], $_POST['author'], $_POST['genre'], $_POST['price'])) {
 
-                    $books[] = $newBooks;
-                    // apply discount for newbook as well
-                    applyDiscounts($books);
-                    // print_r($books);
+        $title = trim($_POST['title']);
+        $author = trim($_POST['author']);
+        $genre = trim($_POST['genre']);
+        $price = (float) $_POST['price']; // converts string to float
 
-                    // part 7 File Logging (Write-Only Log)
-                    $logLine = "[" . date("Y-m-d H:i:s") . "] " .
-                                "IP: " . $_SERVER['REMOTE_ADDR'] . " | " .
-                                "UA: " . $_SERVER['HTTP_USER_AGENT'] . " | " .
-                                "New book: \"" . $newBooks['title'] . " by " . $newBooks['author'] . "\" (" . 
-                                        $newBooks['genre'] . ", " . number_format($newBooks['price'], 2) . ")\n";
-                    // Append to log file
-                    file_put_contents('bookstore_log.txt', $logLine, FILE_APPEND);
+        if ($title && $author && $genre && is_numeric($price)) {
+            $newBook = [
+                'title' => $title,
+                'author' => $author,
+                'genre' => $genre,
+                'price' => $price
+            ];
+            $books[] = $newBook;
+            // apply discount for newbook as well
+            applyDiscounts($books);
+            // print_r($books);
 
-                }else{
-                    echo 'input data is wrong';
-                }
-                break;
-            }
-            break;
+            // part 7 File Logging (Write-Only Log)
+            $logLine = "[" . date("Y-m-d H:i:s") . "] " .
+                        "IP: " . $_SERVER['REMOTE_ADDR'] . " | " .
+                        "UA: " . $_SERVER['HTTP_USER_AGENT'] . " | " .
+                        "New book: \"" . $newBook['title'] . " by " . $newBook['author'] . "\" (" . 
+                                $newBook['genre'] . ", " . number_format($newBook['price'], 2) . ")\n";
+            // Append to log file
+            file_put_contents('bookstore_log.txt', $logLine, FILE_APPEND);
+
+        }else{
+            echo 'input data is wrong';
+        }
     }
+    
     // Part4 Total Price Calculation
     // call function discount to make all book discount
     applyDiscounts($books);
@@ -159,6 +152,15 @@
         </table>
         <h3>Total price after discounts: $<?= number_format($totalPrice, 2) ?></h3>
         
+        <h3>Add a Book</h3>
+        <form method="POST">
+            <input name="title" placeholder="Add Title">
+            <input name="author" placeholder="Add Author" >
+            <input name="genre" placeholder="Add Genre" >
+            <input type="number" name="price" placeholder="Add Price">
+            <button>Add Book</button>
+        </form>
+
         <!-- Part6 Server Info & Timestamp -->
          <div class="timestamp">
             <h3>Server Info & Timestamp</h3>

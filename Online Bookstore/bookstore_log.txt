@@ -1,2 +1,3 @@
-[2025-11-28 03:28:20] IP: 127.0.0.1 | UA: PostmanRuntime/7.49.1 | New book: "Test book by aiya" (Classic Fiction, 100.00)
-[2025-11-28 03:28:27] IP: 127.0.0.1 | UA: PostmanRuntime/7.49.1 | New book: "Test book2 by aiya" (Classic Fiction, 100.00)
+[2025-11-28 04:48:14] IP: 127.0.0.1 | UA: PostmanRuntime/7.49.1 | New book: "Test book2 by aiya" (Classic Fiction, 100.00)
+[2025-11-28 04:48:27] IP: 127.0.0.1 | UA: PostmanRuntime/7.49.1 | New book: "Test book by aiya" (Classic Fiction, 100.00)
+[2025-11-28 04:48:38] IP: 127.0.0.1 | UA: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 | New book: "ddd by d" (dd, 3.00)
