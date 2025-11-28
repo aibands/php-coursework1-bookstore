@@ -1,4 +1,4 @@
-## Online Bookstore
+# Online Bookstore
 
 This project is an online bookstore, developed as part of the Content Management with PHP, MySQL, and WordPress course. 
 It demonstrates:
@@ -6,7 +6,7 @@ It demonstrates:
 - Session management in PHP
 - File logging
 
-# Features
+## Features
 - Book List: Displays books with Title, Author, Genre, and Price(after discount if applicable)
 - Total Price Calculation: Calculates the total price of all books, applying discounts:
     - Science Fiction: 10% discount
@@ -14,7 +14,7 @@ It demonstrates:
 - Server Info & Timestamp: Displays server information and the timestamp of actions
 - View Bookstore Log: Shows a log of user actions for non-repudiation and tracking
 
-# How to run
+## How to run
 1.Requirements
 - Any PHP local server
 - PHP 7.4+
