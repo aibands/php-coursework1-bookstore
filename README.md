@@ -16,10 +16,10 @@ It demonstrates:
 
 ## How to run
 1. Requirements
-- Any PHP local server
-- PHP 7.4+
+    - Any PHP local server
+    - PHP 7.4+
 2. Place the Project Files
-- Copy the project folder into your local server directory
+    - Copy the project folder into your local server directory
 3. Start the Server
 4. Access the Project
-- Open your browser and go to: http://localhost/bookstore/index.php
+    - Open your browser and go to: http://localhost/bookstore/index.php
